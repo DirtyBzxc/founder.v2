@@ -10,6 +10,7 @@ class AdminController extends Controller
 {
     public function index()
      {
-        return view('admin.index');
+      $players = Player::where('approved',false)->get();
+        return view('admin.index',compact('players'));
      }
 }
