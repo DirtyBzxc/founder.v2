@@ -17,7 +17,9 @@ class PlayerFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        $userId = range(1,51);
+         
         $ranks = array("Radiant","Immortal","Ascendant","Diamond","Platinum","Gold","Silver","Bronze","Iron");
         $role = array('Duelist','Controller','Initiator','Sentinel');
         return [
@@ -28,7 +30,9 @@ class PlayerFactory extends Factory
             'description' => $this->faker->text(50),
             'link' => 'https://tracker.gg/valorant/profile/riot/Anoxai%23SSS/overview',
             'contact' => 'https://vk.com/bimoers',
-            'user_id' => rand(1,250)
+            'user_id' =>   $userId[array_rand($userId)],
+
+            'approved' => 0
         ]; 
     }
 }

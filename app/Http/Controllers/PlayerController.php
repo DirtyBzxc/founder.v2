@@ -17,7 +17,7 @@ class PlayerController extends Controller
     public function index(Request $request)
     {    
   
-        $user = Auth::user();
+              $user = Auth::user();
         $players = Player::where('approved',true)->orderBy('created_at', 'desc')->paginate(10);
         $sort = $request->input('sort');
         if($sort)

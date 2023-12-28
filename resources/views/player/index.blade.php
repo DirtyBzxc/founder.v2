@@ -23,8 +23,13 @@
            </form>
           </div>
             <div class="mt-3">
-              @if (isset($user->player['id']))
-              <a class='btn btn-primary' href='{{route('player.show',$user->player['nickname'])}}'>Watch my profile</a>
+            @if (isset($user->player['id']))
+               @if ($user->player['approved'] == true)
+               <a class='btn btn-primary' href='{{route('player.show',$user->player['nickname'])}}'>Watch my profile</a>
+               @else
+               <p class='badge bg-secondary p-3'>Your profile is being reviewed by moderation</a>
+               @endif
+
               @else
               <a class='btn btn-primary' href='{{route('player.create')}}'>Add my profile</a>
               @endif
